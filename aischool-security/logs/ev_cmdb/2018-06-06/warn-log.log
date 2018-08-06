@@ -1,0 +1,6 @@
+2018-06-06 15:18:50.050 [localhost-startStop-1] WARN  org.hibernate.id.UUIDHexGenerator - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-06-06 15:19:00.323 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-06-06 15:19:02.324 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2018-06-06 15:19:02.336 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2018-06-06 15:19:05.506 [restartedMain] WARN  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - Unable to start LiveReload server
+2018-06-06 15:24:28.451 [RMI TCP Connection(2)-127.0.0.1] WARN  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1528269868451, current=DOWN, previous=UP]

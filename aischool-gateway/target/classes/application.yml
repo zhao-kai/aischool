@@ -1,0 +1,69 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+
+spring:
+  application:
+    name: aischool-gateway
+  redis:
+        database: 1
+        host: 120.79.61.28
+        port: 6379
+        password: aischool654321
+        jedis:
+          pool:
+              max-active: 20
+
+server:
+  port: 8081
+  servlet:
+    context-path: /api
+
+zuul:
+  ratelimit: # 网关限流
+    key-prefix: gate_rate #对应用来标识请求的key的前缀
+    enabled: true
+    repository: REDIS #REDIS, JPA, IN_MEMORY
+    behind-proxy: true
+    default-policy: #optional - will apply unless specific policy exists
+      limit: 200
+      refresh-interval: 60 #default value (in seconds)
+      type: #optional
+        - user
+        - origin
+        - url
+    #policy-list:
+      #user-service:
+          #limit: 10 #optional - request number limit per refresh interval window
+          #quota: 1000 #optional - request time limit per refresh interval window (in seconds)
+          #refresh-interval: 60 #default value (in seconds)
+          #type: #optional
+            #- user
+            #- origin
+            #- url
+  routes:
+    #add-host-header: true
+    sensitive-headers: 
+    aischool-logistic: /logistic/**
+    aischool-security: /security/**
+    
+hystrix:
+  threadpool:
+    default:
+      coreSize: 1000 ##并发执行的最大线程数，默认10
+      maxQueueSize: 1000 ##BlockingQueue的最大队列数
+      queueSizeRejectionThreshold: 500 ##即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000
+          strategy: SEMAPHORE
+#ribbon:
+#  eureka:
+#    enabled: ture
+#aischool-logistic:
+#  ribbon:
+#    listOfServers: http://localhost:8080,http://localhost:8081

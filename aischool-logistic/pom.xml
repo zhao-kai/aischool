@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.chenglian</groupId>
+    <artifactId>aischool</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>aischool-logistic</artifactId>
+  
+  <name>aischool-logistic</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mainClass>com.chenglian.aischool.logistic.AiSchoolLogisticApplication</mainClass>
+  </properties>
+  
+  <dependencies>
+  	<dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+    <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-jpa</artifactId>
+	</dependency>
+  	<dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+    <dependency>
+	  <groupId>com.querydsl</groupId>
+	  <artifactId>querydsl-apt</artifactId>
+	  <version>${querydsl.version}</version>
+	  <scope>provided</scope>
+	</dependency>
+	<dependency>
+	  <groupId>com.querydsl</groupId>
+	  <artifactId>querydsl-jpa</artifactId>
+	  <version>${querydsl.version}</version>
+	</dependency>
+  </dependencies>
+  
+</project>

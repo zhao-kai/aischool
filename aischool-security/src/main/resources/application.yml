@@ -1,0 +1,51 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/  #注册中心地址
+  instance:
+    hostname: localhost
+    instance-id: http://localhost:8083
+server:
+  port: 8083
+
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  application:
+    name: aischool-security
+  datasource:
+    url: jdbc:mysql://rm-wz95jb3x5kg39e9v0bo.mysql.rds.aliyuncs.com:3306/aischool?useSSL=false
+    username: root
+    password: Zsndy1314
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  #data.mongodb:
+    #host: localhost
+    #port: 27017
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  tokenHead: "Bearer "
+  route:
+    authentication:
+      path: auth/login
+      refresh: auth/refresh
+      register: auth/register
+
+logging:
+  config: classpath:logback.xml
+  level: 
+    org.springframework: 
+      data: DEBUG
+      security: DEBUG
+
+
+
